@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "pg": "^8.11.3",
-     "@netlify/neon": "^0.7.1"
+    "pg": "^8.11.3"
   }
 }
-
-
-
