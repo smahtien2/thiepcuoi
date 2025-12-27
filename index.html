@@ -127,44 +127,8 @@
   <button type="submit">Xác nhận</button>
 </form>
 
-<script src="/assets/script.js"></script>
-<script>
-  const rsvpForm = document.getElementById("rsvpForm");
+<script src="/script.js"></script>
 
-  rsvpForm.addEventListener("submit", async (e) => {
-    // 1. Ngăn trang web bị load lại khi nhấn submit
-    e.preventDefault();
-
-    // 2. Thu thập dữ liệu từ các input
-    const formData = {
-      full_name: document.getElementById("full_name").value,
-      number_of_guests: parseInt(document.getElementById("number_of_guests").value) || 0,
-      attending: document.querySelector('input[name="attending"]:checked')?.value,
-      message: document.getElementById("message").value
-    };
-
-    try {
-      // 3. Gửi dữ liệu đến Netlify Function
-      const response = await fetch("/.netlify/functions/rsvp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("Cảm ơn bạn! Xác nhận thành công.");
-        rsvpForm.reset(); // Xóa sạch form sau khi gửi
-      } else {
-        alert("Lỗi: " + (data.message || "Không thể gửi dữ liệu"));
-      }
-    } catch (err) {
-      console.error("Lỗi kết nối:", err);
-      alert("Đã có lỗi xảy ra, vui lòng thử lại sau.");
-    }
-  });
-</script>
 </body>
 </html>
 
