@@ -1,8 +1,0 @@
-const rsvpForm = document.getElementById("rsvpForm"); 
-rsvpForm.addEventListener("submit", async (e) => { e.preventDefault(); 
-const formData = { full_name: document.getElementById("full_name").value, number_of_guests: parseInt(document.getElementById("number_of_guests").value) || 0,
-                  attending: document.querySelector('input[name="attending"]:checked')?.value, message: document.getElementById("message").value };
-                                                  try { const res = await fetch("/.netlify/functions/rsvp",
-                                                                                { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) }); 
-                                                       const data = await res.json(); alert(data.message || "Đã gửi xác nhận!"); rsvpForm.reset(); } catch (err) { console.error(err); alert("Gửi thất bại"); } });
-
