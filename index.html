@@ -299,7 +299,25 @@
 </form>
         </div>
     </div>
+  <form id="rsvpForm" class="bg-white p-6 rounded shadow-md w-full max-w-sm">
+    <h2 class="text-xl font-bold mb-4">Xác nhận tham dự</h2>
 
+    <input id="full_name" required placeholder="Họ và tên" class="w-full mb-2 p-2 border rounded" />
+    <input id="number_of_guests" type="number" placeholder="Số khách đi cùng" class="w-full mb-2 p-2 border rounded" />
+
+    <div class="mb-2">
+      <label>
+        <input type="radio" name="attending" value="yes" checked /> Chắc chắn rồi!
+      </label>
+      <label class="ml-4">
+        <input type="radio" name="attending" value="no" /> Tiếc quá mình bận
+      </label>
+    </div>
+
+    <textarea id="message" placeholder="Lời nhắn (nếu có)" class="w-full mb-2 p-2 border rounded"></textarea>
+
+    <button type="submit" class="w-full bg-pink-500 text-white p-2 rounded hover:bg-pink-600">Xác nhận</button>
+  </form>
     <div id="groomModal" class="modal px-4">
         <div class="bg-white w-full max-w-sm rounded-2xl p-8 text-center relative">
             <button onclick="closeModal('groomModal')" class="absolute top-4 right-4 text-gray-400 text-2xl">&times;</button>
